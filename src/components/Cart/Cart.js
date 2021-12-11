@@ -12,6 +12,11 @@ const Cart = (props) => {
        total = total+product.price;
    }
 
+//    ToFixed use function
+   const converter = num => {
+    return num.toFixed(2);
+ }
+
 
    let shipping = 0;
    if(total > 35){
@@ -26,12 +31,11 @@ const Cart = (props) => {
    
 
      const vat = total/10;
-     const taxVat = vat.toFixed(2);
+     const taxVat = converter(vat)
 
 
     const  AllTotalMoney = total+shipping+vat;
-    const AllTotal = AllTotalMoney.toFixed(2);
-
+    const AllTotal = converter(AllTotalMoney)
 
     return (
         <div>
@@ -39,7 +43,7 @@ const Cart = (props) => {
             <h4>Ordered Item: {cart.length}</h4>
             <small>Tax + vat: {taxVat}</small>
             <p>Shipping Cost: {shipping}</p>
-            <p>Total Price: {total.toFixed(2)}</p>
+            <p>Total Price: {converter(total)}</p>
             <h4>All Total Price: {AllTotal}</h4>
         </div>
     );
