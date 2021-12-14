@@ -39,12 +39,12 @@ const Cart = (props) => {
 
     return (
         <div>
-            <h4>Order Summary</h4>
+            <h4 className="text-danger bold">Total Order Summary</h4>
             <h4>Ordered Item: {cart.length}</h4>
             <small>Tax + vat: {taxVat}</small>
             <p>Shipping Cost: {shipping}</p>
             <p>Total Price: {converter(total)}</p>
-            <h4>All Total Price: {AllTotal}</h4>
+            <h4 className="text-danger">All Total Price: {AllTotal}</h4>
         </div>
     );
 };
