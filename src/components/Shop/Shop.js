@@ -28,7 +28,19 @@ const Shop = () => {
 
       <div className="card-container">
         <Cart card={card}></Cart>
+          
       </div>
+
+      <jumbotron>
+  <h1>Hello, world!</h1>
+  <p>
+    This is a simple hero unit, a simple jumbotron-style component for calling
+    extra attention to featured content or information.
+  </p>
+  <p>
+    <Button variant="primary">Learn more</Button>
+  </p>
+    </Jumbotron> 
 
       {/* <div className="extra-container">
           <h1>this is a Extra container. </h1>
