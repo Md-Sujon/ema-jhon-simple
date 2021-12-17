@@ -10,6 +10,7 @@
     font-size:25px;
   
 }
+
 .nav a{
     text-decoration: none;
     margin-right: 20px;
@@ -20,4 +21,7 @@
 .nav a:hover{
 background-color:gray;
 border-radius: 10px;
+}
+.navbar1{
+    margin-left: 550px;
 }
