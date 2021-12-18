@@ -16,16 +16,16 @@ const Product = (props) => {
 
             <div className="product-text">
            
-            <h3 className="product-name"><Link to={"/Product/"+key}>{name}</Link></h3>
+            <h3 className="product-name"><Link to={"/"+key}>{name}</Link></h3>
             <p>By: {category}</p>
             <p>Seller: {seller}</p>
             <h3>${price}</h3>
             <p>Only {stock} left in stock -order soon</p>
 
-            <button 
+            { props.showAddToCard === true && <button 
             onClick={() => props.handleAddProduct(props.product)}
              className="main-button btn btn-danger">
-            <FontAwesomeIcon icon={faShoppingCart}/> add to card</button>
+            <FontAwesomeIcon icon={faShoppingCart}/> add to card</button>}
             </div>
             
             

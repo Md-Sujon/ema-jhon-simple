@@ -17,10 +17,14 @@ function App() {
      <Header></Header>
      <Router>
        <Switch>
-        <Route path="/Shop">
+        <Route path="/shop">
          <Shop></Shop>
          </Route>
 
+         {/* <Route path="/product/shop">
+         <Shop></Shop>
+         </Route> */}
+            
           <Route path="/review">
              <Review></Review>
           </Route>
@@ -33,7 +37,7 @@ function App() {
           <Shop></Shop>
           </Route>
 
-          <Route path="/Product/:productKey">
+          <Route path="/:productKey">
            <ProductDetails></ProductDetails>
           </Route>
 
