@@ -17,11 +17,11 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <div className="product-container">
-        {products.map((pd) => (
+        {products.map((product) => (
           <Product
             handleAddProduct={handleAddProduct}
-            productDetails={pd}
-            key={pd.key}
+            product={product}
+            key={product.key}
           ></Product>
         ))}
       </div>

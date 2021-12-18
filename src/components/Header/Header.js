@@ -10,8 +10,8 @@ const Header = () => {
            <nav className="nav">
            <div className="navbar1">
                 <a href="shop">Shop</a>
-                 <a href="order">Order</a>
-                 <a href="inventory-mange">Inventory-mange</a>
+                 <a href="review">Order</a>
+                 <a href="inventory">Inventory-mange</a>
                  </div>
                 </nav>
            
