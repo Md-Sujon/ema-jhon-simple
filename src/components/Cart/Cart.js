@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
     const cart = props.card;
-    console.log(props.card);
+    // console.log(props.card);
 
     // const total = cart.reduce((total, product) => total + product.price, 0)
 
    let total = 0;
    for(let i = total; i< cart.length; i++) {
        const product = cart[i];
-       total = total+product.price;
+       total = total+product.price * product.quantity;
+    
    }
 
 //    ToFixed use function

@@ -1,23 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Shop.css";
 import fakeData from "../../fakeData";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
-import { addToDb } from "../../utilities/fakedb";
+import { addToDb, getStoredCart } from "../../utilities/fakedb";
 
 const Shop = () => {
   const firstTenProduct = fakeData.slice(0, 10);
   const [products, setProducts] = useState(firstTenProduct);
   const [card, setCard] = useState([]);
+       useEffect(()=>{
+         const saveCart = getStoredCart();
+         const productKey = Object.keys(saveCart);
+         const previousCart = productKey.map(pdKey => {
+           const product = fakeData.find(pd => pd.key === pdKey);
+           product.quantity = saveCart[pdKey]
+           return product;
+         })
+         setCard(previousCart);
+
+       },[])
+
 
   const handleAddProduct = (product) => {
-    const newCard = [...card, product];
+    const toBeAddedKey = product.key;
+    const sameProduct = card.find(pd => pd.key === toBeAddedKey)
+    let count = 1;
+    let newCard;
+    if(sameProduct) {
+      count = sameProduct.quantity + 1;
+      sameProduct.quantity = count;
+      const others = card.filter(pd => pd.key !== toBeAddedKey)
+      newCard = [...others, sameProduct]
+    }
+    else{
+      product.quantity = 1;
+      newCard = [...card, product]
+    }
     setCard(newCard);
-    addToDb(product.key, 1)
+    addToDb(product.key, count)
   };
 
   return (
-    <div className="shop-container">
+    <div className="twin-container">
       <div className="product-container">
         {products.map((product) => (
           <Product
