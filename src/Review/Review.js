@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import {removeFromDb, getStoredCart} from '../../src/utilities/fakedb'
+import {removeFromDb, getStoredCart, clearTheCart} from '../../src/utilities/fakedb'
 import Cart from '../components/Cart/Cart';
-
 import ReviewItem from '../components/ReviewItem/ReviewItem';
 import fakeData from '../fakeData';
+import happyimage from '../images/thank-you-big-thanks.gif'
 
 
 const Review = () => {
 const [carts,setCards] = useState([]);
+const [orderPlace,setOrderPlace] = useState(false);
+
+
+const handleOrderPlaces = () =>{
+    setCards([]);
+    setOrderPlace(true);
+    clearTheCart();
+}
 
 const removeProduct = (productKey) => {
     console.log('Remove Click',productKey);
@@ -29,10 +37,16 @@ useEffect(() => {
 
        console.log(cartProducts);
 },[])
+
+let thankYou;
+if(orderPlace){
+   thankYou = <img style={{ height:'500px', width:'1000px'}} src={happyimage}></img>
+}
+
     return (
         <div className="twin-container">
            <div className="product-container">
-           <h2>{carts.length}</h2>
+          
             {
                 carts.map(pd=> <ReviewItem 
                     product={pd}
@@ -40,9 +54,14 @@ useEffect(() => {
                      removeProduct={removeProduct}
                      ></ReviewItem>)
             }
+            {
+                thankYou
+            }
            </div>
            <div className="card-container">
-           <Cart card={carts}></Cart>
+           <Cart card={carts}>
+               <button onClick={handleOrderPlaces} className="main-button">Place Order</button>
+           </Cart>
            </div>
         </div>
     );
