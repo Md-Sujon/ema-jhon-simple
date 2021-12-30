@@ -12,6 +12,7 @@ const Header = () => {
                 <a href="shop">Shop</a>
                  <a href="review">Order</a>
                  <a href="inventory">Inventory-mange</a>
+                 <a href="login">Log In</a>
                  </div>
                 </nav>
            
