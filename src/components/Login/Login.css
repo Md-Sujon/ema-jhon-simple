@@ -7,4 +7,10 @@
     Background: violet;
     border: 1px solid red;
     border-radius:20px;
+    font-weight: bold;
+}
+.login h3{
+    font-weight: bold;
+    color: purple;
+    font-size: 50px;
 }
