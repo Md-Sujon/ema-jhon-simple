@@ -8,12 +8,16 @@ initializeApp(firebaseConfig);
 
 const Login = () => {
   const provider = new GoogleAuthProvider();
+
+
   const [user, setUser] = useState({
     isSingIn: false,
     name: "",
     photo: "",
     email: "",
   });
+
+// Google singIn Function
 
   const handleSingIn = () => {
     const auth = getAuth();
@@ -27,12 +31,13 @@ const Login = () => {
           photo: photoURL,
         };
         setUser(singIn);
-        console.log(displayName, email, photoURL);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  // Google singOut Function
 
   const handleSingOut = () => {
     const auth = getAuth();
@@ -53,6 +58,8 @@ const Login = () => {
   return (
     <div className="container login m-5">
       <h3>This is Login</h3>
+
+{/* Condition Button singIn SingOut */}
 
       {user.isSingIn ? (
         <button onClick={handleSingOut}>Sing Out</button>
