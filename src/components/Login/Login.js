@@ -2,6 +2,7 @@ import React from 'react';
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from '../firebase.config';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import './Login.css';
 
 
 
@@ -21,7 +22,7 @@ signInWithPopup(auth, provider)
   })
    }
     return (
-        <div>
+        <div className="container login m-5">
             <h3>This is Login</h3>
             <button onClick={handleSingin}>Sing in</button>
         </div>

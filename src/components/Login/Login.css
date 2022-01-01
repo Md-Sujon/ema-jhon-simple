@@ -1,0 +1,10 @@
+.login{
+    text-align: center;
+}
+.login button {
+    height: 50px;
+    width: 200px;
+    Background: violet;
+    border: 1px solid red;
+    border-radius:20px;
+}
